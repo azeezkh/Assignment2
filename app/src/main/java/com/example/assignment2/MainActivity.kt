@@ -19,11 +19,11 @@ class MainActivity : AppCompatActivity() {
         val feesTV: TextView = findViewById(R.id.fees)
         var perHour: Double
         var semesterFee: Double = 0.0
-        val radioGroup = findViewById<RadioGroup>(R.id.SemesterRadio)
+        val radioGroup : RadioGroup = findViewById(R.id.SemesterRadio)
 
 
         var flag1 : String = "Accounting"
-        var flag2 : String = "Normal Semester"
+        var flag2 : String =""
 
         val spinnerVal : Spinner = findViewById(R.id.spinner01)
 
@@ -65,9 +65,11 @@ class MainActivity : AppCompatActivity() {
             else
                 perHour = 120.00
 
-         // val selectedOption: Int = radioGroup.checkedRadioButtonId
-          //val radioButton = view.findViewById<RadioButton>(selectedOption)
-          //flag2 = radioButton.text.toString()
+          val selectedOption: Int = radioGroup.checkedRadioButtonId
+          val radioButton : RadioButton = findViewById(selectedOption)
+
+
+          flag2 = radioButton.text.toString()
 
             if(flag2 == "Normal Semester")
                 semesterFee = 300.00
@@ -118,7 +120,12 @@ public fun calc(a: Double, b: Double, c: Double): Double {
         return true;
     }
 
+   fun receiveFeedback(feedback: String) :String {
+       val semesterType : String = feedback
+       return semesterType
 
+
+    }
 
 
 }
